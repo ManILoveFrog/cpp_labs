@@ -1,0 +1,5 @@
+﻿  main.cpp
+D:\prog\Saminin_2kurs_IVT3_Laba1\ex1_var1\main.cpp(54,12): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\prog\Saminin_2kurs_IVT3_Laba1\ex1_var1\main.cpp(54,9): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+D:\prog\Saminin_2kurs_IVT3_Laba1\ex1_var1\main.cpp(41,9): warning C4101: y: неиспользованная локальная переменная
+  ex1_var1.vcxproj -> D:\prog\Saminin_2kurs_IVT3_Laba1\Debug\ex1_var1.exe
