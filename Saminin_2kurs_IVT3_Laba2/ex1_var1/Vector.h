@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 using namespace std;
-const size_t LENGTH = 25;
+
 
 
 class Vector{
@@ -9,16 +9,15 @@ public:
 
 	double* arr1D;
 
-	Vector(); //Конструктор 
-
-	void initArray(); 
-
+	Vector(size_t n); //Конструктор 
+	
 	void printArray1D();
+
+	double** transform();
 
 	~Vector(); //Деконструктор
 
-	double& operator[] (const int index) //Перегрузка оператора индекцсации
-	{
+	double& operator[] (const int index) { //Перегрузка оператора индекцсации
 		return arr1D[index];
 	}
 

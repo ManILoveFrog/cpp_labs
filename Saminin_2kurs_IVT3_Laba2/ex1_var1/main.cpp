@@ -10,6 +10,7 @@
 //	* Перегрузить операторы инкремента и декремента(как префиксного, так и постфиксного).
 //Смысл инкремента / декремента всего массива заключается в инкременте / декременте каждого элемента массива.
 
+//asdfglasdfglasdfgl
 #include <iostream>
 using namespace std;
 #include "Vector.h"
@@ -17,36 +18,36 @@ using namespace std;
 #include <conio.h> // for using getch()
 static int i, j;
 
-int main() {
-	Vector arr1D;
-	arr1D.initArray();
-	arr1D.printArray1D();
-	arr1D.~Vector();
 
-	Matrix arr2D;
-	arr2D.makeArray2D();
+int main() {
+	Vector arr1D(25);
+	arr1D.printArray1D();
 	
-	cout << "  ++value : \n";
+	Matrix arr2D;
+	arr2D.arr2D = arr1D.transform();
+
+	
+	cout << "  ++value : ";
 	arr2D.operator++(); //Перегрузка: префиксный инкремент
 	arr2D.printArray2D(); 
-	arr2D.makeArray2D();
+	arr2D.remakeArray2D();
 
-	cout << "  --value : \n";
+	cout << "  --value : ";
 	arr2D.operator--(); //Перегрузка: префиксный декремент
 	arr2D.printArray2D();
-	arr2D.makeArray2D();
+	arr2D.remakeArray2D();
 
-	cout << "  value++ : \n";
+	cout << "  value++ : ";
 	arr2D.operator++(25); //Перегрузка: постфиксный инкремент
 	arr2D.printArray2D();
-	arr2D.makeArray2D();
+	arr2D.remakeArray2D();
 
-	cout << "  value-- : \n";
+	cout << "  value-- : ";
 	arr2D.operator--(25); //Перегрузка: постфиксный декремент
 	arr2D.printArray2D();
-	arr2D.makeArray2D();
+	arr2D.remakeArray2D();
 
-	cout << "  Original array : \n";
+	cout << "  Original array : ";
 	arr2D.printArray2D();
 
 
@@ -61,8 +62,7 @@ int main() {
 
 		cout << arr2D.at(i, j) << "\n";
 		arr2D.setAt(i, j, 0);
-		cout << "\n";
-		arr2D.remakeArray2D();
+		
 		arr2D.printArray2D();
 
 		cout << "Press 'ENTER' to EXIT, press ANY KEY to continue\n\n";
@@ -72,7 +72,7 @@ int main() {
 		}
 	}
 
-	
+	arr1D.~Vector();
 	arr2D.~Matrix();
 
 	system("pause");
