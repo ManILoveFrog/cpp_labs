@@ -5,6 +5,7 @@ using namespace std;
 
 static char numOfStudent = 49; // code 49 = '1'
 static char numOfStudentRead = 49;
+
 const size_t S = 3; // кол-во сессий (s -> sessions)
 const size_t M = 4; // кол-во отметок на каждой сессии (m -> marks)
 const size_t COM = M * S; // com - common

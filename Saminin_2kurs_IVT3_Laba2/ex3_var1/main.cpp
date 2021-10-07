@@ -47,30 +47,12 @@ void printSortArray(double* arr1, string* arr2, size_t n) {
 	cout << "\n\n";
 }
 
-double* session(double* arrAvarMarks, size_t n) {
-	size_t min = 1, max = 5;
-	double sumMarks = 0;
-
-	for (size_t i = 0; i < n; i++) {
-
-		for (size_t j = 0; j < 12; j++) {
-			sumMarks += (size_t)((rand() % (max - min + 1)) + min);
-		}
-		arrAvarMarks[i] = sumMarks / 12;
-		sumMarks = 0;
-
-	}
-	
-	return arrAvarMarks;
-}
-
 int main() {
 	setlocale(LC_ALL, "rus");
 
 	Student student1, student2, student3; //stack
 	Student* student4 = new Student("Богов Иисус Христосович", "муж", 0, 2000, 151424234334, 0); //heap
 
-	
 	student1.setFio("Саминин Ярослав Александрович");
 	student1.setGender("муж");
 	student1.setYearOfBirth(2002);
@@ -92,12 +74,8 @@ int main() {
 	student3.setNumOfCreditBook(777000777);
 	student3.setAvarageMark(0);
 	
-	
 
-	//session(pitaDoub, numOfStud);
-
-
-	//Имитация 3 сессий(не дай бог) по 4 отметки в каждой вызывается неявно
+	//Имитация 3 сессий(не дай бог)
 	student1.sessionSimulation();
 	student2.sessionSimulation(); 
 	student3.sessionSimulation(); 
@@ -130,7 +108,6 @@ int main() {
 	student3.deserialize("Student3.txt");
 	student4->deserialize("Student4.txt");
 
-
 	// Записываем в файл
 	student1.serialize();
 	student2.serialize();
@@ -141,7 +118,8 @@ int main() {
 	student2.serialize("Student2.txt");
 	student3.serialize("Student3.txt");
 	student4->serialize("Student4.txt");
-	
+
+
 	//До сортировки
 	cout << "\n  Студенты до сортировки: " << endl;
 	student1.printInfo();
@@ -149,9 +127,6 @@ int main() {
 	student3.printInfo();
 	student4->printInfo();
 
-	//Сортировка
-	cout << "\n\n  Сортировка по среднему баллу на убывание: " << endl;
-	
 	//Массив имен студентов
 	string pitaStr[numOfStud];
 	pitaStr[0] = student1.getFio();
@@ -166,6 +141,8 @@ int main() {
 	pitaDoub[2] = student3.getAvarageMark();
 	pitaDoub[3] = student4->getAvarageMark();
 
+	//Сортировка
+	cout << "\n\n  Сортировка по среднему баллу на убывание: " << endl;	
 	sortArray(pitaDoub, pitaStr, numOfStud);
 	printSortArray(pitaDoub, pitaStr, numOfStud);
 
