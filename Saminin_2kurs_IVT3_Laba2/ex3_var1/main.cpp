@@ -20,7 +20,49 @@
 #include "Student.h"
 using namespace std;
 #include <fstream> // for using file input/output
-#include <algorithm> // for using sort()
+const size_t numOfStud = 4;
+
+void sortArray(double* arr1, string* arr2, size_t n){
+	for (int i = 0; i < n; i++) {
+		double zamenaDoub;
+		string zamenaStr;
+		for (int j = i + 1; j < n; j++) {
+			if (arr1[i] < arr1[j]) {
+				zamenaDoub = arr1[i];
+				arr1[i] = arr1[j];
+				arr1[j] = zamenaDoub;
+
+				zamenaStr = arr2[i];
+				arr2[i] = arr2[j];
+				arr2[j] = zamenaStr;
+			}
+		}
+	}
+}
+
+void printSortArray(double* arr1, string* arr2, size_t n) {
+	for (size_t i = 0; i < n; i++) {
+		cout << "  " << i + 1 << " - " << arr2[i] << " - " << arr1[i] << endl;
+	}
+	cout << "\n\n";
+}
+
+double* session(double* arrAvarMarks, size_t n) {
+	size_t min = 1, max = 5;
+	double sumMarks = 0;
+
+	for (size_t i = 0; i < n; i++) {
+
+		for (size_t j = 0; j < 12; j++) {
+			sumMarks += (size_t)((rand() % (max - min + 1)) + min);
+		}
+		arrAvarMarks[i] = sumMarks / 12;
+		sumMarks = 0;
+
+	}
+	
+	return arrAvarMarks;
+}
 
 int main() {
 	setlocale(LC_ALL, "rus");
@@ -50,8 +92,12 @@ int main() {
 	student3.setNumOfCreditBook(777000777);
 	student3.setAvarageMark(0);
 	
+	
 
-	//Имитация 3 сессий(не дай бог)
+	//session(pitaDoub, numOfStud);
+
+
+	//Имитация 3 сессий(не дай бог) по 4 отметки в каждой вызывается неявно
 	student1.sessionSimulation();
 	student2.sessionSimulation(); 
 	student3.sessionSimulation(); 
@@ -62,12 +108,6 @@ int main() {
 	student2.calculAvarageMark();
 	student3.calculAvarageMark();
 	student4->calculAvarageMark();
-
-	
-	//Вывод на консоль
-	//student1.printInfo(student1);
-	//student1.printInfo(student2);
-	//student1.printInfo(student3);
 
 	//Пояснения к работе программы
 	cout << "  Теперь загляните в папку с проектом\n  Там вы увидите текстовые файлы по данным класса\n" << endl;
@@ -102,7 +142,7 @@ int main() {
 	student3.serialize("Student3.txt");
 	student4->serialize("Student4.txt");
 	
-	//Сортировка
+	//До сортировки
 	cout << "\n  Студенты до сортировки: " << endl;
 	student1.printInfo();
 	student2.printInfo();
@@ -111,41 +151,23 @@ int main() {
 
 	//Сортировка
 	cout << "\n\n  Сортировка по среднему баллу на убывание: " << endl;
-	const size_t numOfStud = 4;
+	
+	//Массив имен студентов
 	string pitaStr[numOfStud];
 	pitaStr[0] = student1.getFio();
 	pitaStr[1] = student2.getFio();
 	pitaStr[2] = student3.getFio();
 	pitaStr[3] = student4->getFio();
 
+	//Массив средних отметок
 	double pitaDoub[numOfStud];
 	pitaDoub[0] = student1.getAvarageMark();
 	pitaDoub[1] = student2.getAvarageMark();
 	pitaDoub[2] = student3.getAvarageMark();
 	pitaDoub[3] = student4->getAvarageMark();
 
-	
-	for (int i = 0; i < numOfStud; i++) {
-		double zamenaDoub;
-		string zamenaStr;
-		for (int j = i + 1; j < numOfStud; j++) {
-			if (pitaDoub[i] < pitaDoub[j]) {
-				zamenaDoub = pitaDoub[i];
-				pitaDoub[i] = pitaDoub[j];
-				pitaDoub[j] = zamenaDoub;
-
-				zamenaStr = pitaStr[i];
-				pitaStr[i] = pitaStr[j];
-				pitaStr[j] = zamenaStr;
-			}
-		}
-	}
-
-	for (size_t i = 0; i < numOfStud; i++) {
-		cout << "  "<< i+1 <<" - " << pitaStr[i] << " - " << pitaDoub[i] << endl;
-	}
-
-	cout << "\n\n";
+	sortArray(pitaDoub, pitaStr, numOfStud);
+	printSortArray(pitaDoub, pitaStr, numOfStud);
 
 	system("pause");
 	return 0;

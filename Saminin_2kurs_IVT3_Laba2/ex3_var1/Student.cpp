@@ -1,9 +1,8 @@
-#pragma once
 #include "Student.h"
 #include <iostream>
 #include <fstream> // for using file input/output
-#include <algorithm> // for using sort()
 using namespace std;
+
 static char numOfStudent = 49; // code 49 = '1'
 static char numOfStudentRead = 49;
 const size_t S = 3; // кол-во сессий (s -> sessions)
@@ -149,13 +148,4 @@ double Student::calculAvarageMark() {
 
 void Student::printInfo() {
 	cout << "  " << getFio() << " - " << getAvarageMark() << endl;
-}
-
-void Student::printInfo(Student st) {
-	cout << "  ФИО: " << st.getFio() << endl;
-	cout << "  Пол: " << st.getGender() << endl;
-	cout << "  Год рождения: " << st.getYearOfBirth() << endl;
-	cout << "  Год поступления: " << st.getYearOfEntrance() << endl;
-	cout << "  Номер зачётки: " << st.getNumOfCreditBook() << endl;
-	cout << "  Средний балл: " << st.getAvarageMark() << endl;
 }

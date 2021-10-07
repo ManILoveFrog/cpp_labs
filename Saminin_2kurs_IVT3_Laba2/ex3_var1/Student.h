@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include <string>
 using namespace std;
 
@@ -34,7 +33,6 @@ public:
 	//my metod
 	double sessionSimulation();
 	double calculAvarageMark();
-	void printInfo(Student st);
 	void printInfo();
 
 private:
