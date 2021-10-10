@@ -93,30 +93,21 @@ void Fraction::printAsFraction(double decimal_fraction) {
 }
 
 void Fraction::printAsFraction(char* decimal_fraction) {
-	char fr[255]; 
+	double decFract = atof(decimal_fraction);
+
+	int numerator; //числитель
+	int denominator = 1; // знаманетель 
 	
-	size_t j = 0;
-	int den = 1;
-
-
-	for (size_t i = 0; i < 255; i++) {
-		fr[j] = decimal_fraction[i];
-		if (decimal_fraction[i] == '.') continue;
-		j++;
+	for (size_t i = 0; i < 7; i++) {
+		decFract *= 10;
+		denominator *= 10;
 	}
+	numerator = (int)decFract;
+	//cout << numerator << " / " << denominator << "\n";
 
-
-	for (size_t i = 1; i < 255; i++) {	
-		if ((fr[i] == '0') or (fr[i] == '1') or (fr[i] == '2') or
-			(fr[i] == '3') or (fr[i] == '4') or (fr[i] == '5') or
-			(fr[i] == '6') or (fr[i] == '7') or (fr[i] == '8') or
-			(fr[i] == '9') or (fr[i] == '0')) {
-			den *= 10;
-		}
-	}
-	for (size_t i = 1; i < 255; i++) {
-		if (fr[0] == '0') fr[0] = ' ';
-	}
-	cout << "\n\n\tOrdinary fraction: " << fr << " / " << den << "\n\n";
-	
+	Fraction fr;
+	fr.x = numerator;
+	fr.y = denominator;
+	fr.reduce();
+	cout << "\n\n\tOrdinary fraction : " << fr.x << " / " << fr.y << "\n\n";
 }
