@@ -1,0 +1,6 @@
+﻿  main.cpp
+D:\ManILoveFrog\Saminin_2kurs_IVT3_Laba2\ex3_var1\main.cpp(65,117): warning C4305: аргумент: усечение из "__int64" в "long"
+D:\ManILoveFrog\Saminin_2kurs_IVT3_Laba2\ex3_var1\main.cpp(65,101): warning C4309: аргумент: усечение константного значения
+D:\ManILoveFrog\Saminin_2kurs_IVT3_Laba2\ex3_var1\main.cpp(71,41): warning C4305: аргумент: усечение из "__int64" в "const long"
+D:\ManILoveFrog\Saminin_2kurs_IVT3_Laba2\ex3_var1\main.cpp(71,30): warning C4309: аргумент: усечение константного значения
+  ex3_var1.vcxproj -> D:\ManILoveFrog\Saminin_2kurs_IVT3_Laba2\x64\Debug\ex3_var1.exe
